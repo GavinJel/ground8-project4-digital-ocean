@@ -1,2 +1,3 @@
-# ground8-project4-digital-ocean
-Using the digital ocean connection
+# Skeleton App
+
+This is a very basic skeleton express app you can use to build from on labs and projects.

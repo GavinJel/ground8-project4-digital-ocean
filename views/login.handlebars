@@ -1,0 +1,97 @@
+<head>
+<link rel="stylesheet" href="/appTV.css">
+</head>
+
+<h1><a href='/' class="title">Crunchy TV</a></h1>
+<div class="Search-button"><a href="/search">Search</a></div>
+  {{#if flash}}
+  <div class="floating-alert alert alert-{{flash.type}} alert-dismissible" role="alert">
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    <strong>{{flash.intro}}</strong>
+    {{!-- <p>{{flash.message}}</p> --}}
+  </div>
+  {{/if}}
+
+<h2>Please login</h2>
+
+<form action="/login" method="POST">
+<label for="username" class="visually-hidden">Email</label>
+<input 
+    type="username"
+    class="form-control"
+    name="username"
+    placeholder="Email"
+    required=""
+    autocomplete="off"
+    />
+<label for="password" class="visually-hidden">Password</label>
+<input 
+    type="password"
+    class="form-control"
+    name="password"
+    placeholder="Password"
+    required=""
+    autocomplete="off"
+    />
+</div>
+<div class="login">
+<button
+    class="btn btn-lg btn-primary btn-block"
+    type="submit"
+>Login</button>
+</div>
+</form>
+
+{{!-- Beginning of the signup  --}}
+
+<div class="signup">
+<h2>Sign Up</h2>
+<form action="/signup" method="POST">
+<label for="username" class="visually-hidden">Email</label>
+<input 
+    type="username"
+    class="form-control"
+    name="username"
+    placeholder="Email"
+    required=""
+    autocomplete="off"
+    />
+<label for="usernameCheck" class="visually-hidden">Email (Re-entered)</label>
+<input 
+    type="usernameCheck"
+    class="form-control"
+    name="usernameCheck"
+    placeholder="Email (Re-entered)"
+    required=""
+    autocomplete="off"
+    />
+
+<label for="password" class="visually-hidden">Password</label>
+<input 
+    type="password"
+    class="form-control"
+    name="password"
+    placeholder="Password"
+    required=""
+    autocomplete="off"
+    />
+<label for="passwordCheck" class="visually-hidden">Password (re-entered)</label>
+<input 
+    type="passwordCheck"
+    class="form-control"
+    name="passwordCheck"
+    placeholder="Password (Re-entered)"
+    required=""
+    autocomplete="off"
+    />
+</div>
+
+
+
+<div class="signup-button">
+<button
+    class="btn btn-lg btn-primary btn-block"
+    type="submit"
+>Sign Up</button>
+</div>
+</form>

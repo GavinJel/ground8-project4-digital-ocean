@@ -1,0 +1,36 @@
+
+<head>
+<link rel="stylesheet" href="/appTV.css">
+</head>
+<body>
+
+{{#if user}}
+<h1><a href='/' class="title-signed-in">Welcome, {{user.username}} to Crunchy TV</a></h1>
+<p></p>
+<div class="logout-Btn"><a href="/logout">Logout</a></div>
+<div class="Search-button"><a href="/search">Search</a></div>
+<div class="favorites">
+    {{#if favorites}}   
+  <ul class="personal-favorites">
+    {{#each favorites}}
+ <fieldset class="show-fieldset">
+        <legend class="show-information">{{name}}</legend>
+            <li class="bullets">ID: <label for="id" name="id" class="bullets" value={{id}}>{{id}}</label></li>
+            <li class="bullets">Name: <label for="name" name="name" class="bullets" value={{name}}>{{name}}</label></li>
+            <li class="bullets">Link to: <a class="bullet-link" name="url" href={{url}} value={{url}}><label for="url" class="bullets">{{url}}</label></a></li>
+            <li class="img-bullets"><label for="image" name="image" class="img-bullets" value={{image.original}}><img src={{image.original}} class="images"></label></li>
+ </fieldset>
+    </ul>
+    {{/each}}
+    {{else}}
+    <h2 class="no-favorites-class">You have no favorites! Maybe try adding some.</h2>
+    {{/if}}
+</div>
+{{else}}
+<h1><a href='/' class="title">Crunchy TV</a></h1>
+<div class="Login-button"><a href="/login">Login</a></div>
+<div class="Search-button"><a href="/search">Search</a></div>
+<h2 style="float:left; margin-left:40%;">Please login to see your favorites.</h2>
+</div>
+{{/if}}
+</body>

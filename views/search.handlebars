@@ -1,0 +1,65 @@
+<head>
+<link rel="stylesheet" href="/appTV.css">
+</head>
+
+{{#if user}}
+<h1><a href='/' class="title">Welcome, {{user.username}} to Crunchy TV</a></h1>
+<div class="logout-Btn"><a href="/logout">Logout</a></div>
+{{else}}
+<h1><a href='/' class="title">Crunchy TV</a></h1>
+{{/if}}
+<form action="/search" method="POST">
+<label for="search" class="visually-hidden">Search For a Show:</label>
+<input 
+    type="search"
+    class="form-control"
+    name="search"
+    placeholder="Search For a Show"
+    required=""
+    autocomplete="off"
+    />
+<div class="search">
+<button style='float: left; margin-left: 49%'
+    class="btn btn-lg btn-primary btn-block"
+    type="submit"
+>Search</button>
+</div>   
+</form>
+
+
+{{#if shows}}
+<ul class="shows">
+    {{#each shows}}
+            {{#if favorited}}
+<form action="/removeFromFavorites" method="POST">
+    <fieldset class="show-fieldset">
+        <legend class="show-information">Show Information</legend>
+            <li class="bullets">ID: <label for="id" name="id" class="bullets" value={{id}}>{{id}}</label></li>
+            <li class="bullets">Name: <label for="name" name="name" class="bullets" value={{name}}>{{name}}</label></li>
+            <li class="bullets">Link to: <a class="bullet-link" name="url" href={{url}} value={{url}}><label for="url" class="bullets">{{url}}</label></a></li>
+            <li class="img-bullets"><label for="image" name="image" class="img-bullets" value={{image.original}}><img src={{image.original}} class="images"></label></li>
+            <li class="bullets-favorite-button"><button style='float: left; margin-left: 49%'
+        class="button-favorites"
+        type="submit"
+        >Remove from favorites</button></li>
+    </fieldset>
+</form>
+            {{else}}
+            <form action="/addToFavorites" method="POST">
+    <fieldset class="show-fieldset">
+        <legend class="show-information">Show Information</legend>
+            <li class="bullets">ID: <label for="id" name="id" class="bullets" value={{id}}>{{id}}</label></li>
+            <li class="bullets">Name: <label for="name" name="name" class="bullets" value={{name}}>{{name}}</label></li>
+            <li class="bullets">Link to: <a class="bullet-link" name="url" href={{url}} value={{url}}><label for="url" class="bullets">{{url}}</label></a></li>
+            <li class="img-bullets"><label for="image" name="image" class="img-bullets" value={{image.original}}><img src={{image.original}} class="images"></label></li>
+            <li class="bullets-favorite-button"><button style='float: left; margin-left: 49%'
+        class="button-favorites"
+        type="submit"
+        >Add to favorites</button></li>
+    </fieldset>
+</form>
+            {{/if}}
+    <p></p>
+    {{/each}}
+</ul>
+{{/if}}
